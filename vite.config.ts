@@ -16,7 +16,13 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react/jsx-runtime",
+        "@emotion/react",
+        "@emotion/styled",
+        "@mui/material",
+      ],
       input: Object.fromEntries(
         glob
           .sync(resolve("lib/**/*.{ts,tsx}"))
@@ -26,9 +32,9 @@ export default defineConfig({
           ])
       ),
       output: {
-        assetFileNames: 'assets/[name][extname]',
-        entryFileNames: '[name].js',
-      }
+        assetFileNames: "assets/[name][extname]",
+        entryFileNames: "[name].js",
+      },
     },
   },
 });
